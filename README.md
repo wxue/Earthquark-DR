@@ -33,6 +33,11 @@ Earth quark - dangerous region query api
     . boot -b
     ```
 
+5. Import/update data source
+    ```
+    . boot -u
+    ```
+
 I wrote a script to setup and run server, check it out
 ```
 . boot -h
@@ -40,14 +45,14 @@ I wrote a script to setup and run server, check it out
 
 Usage:
 ```
-usage: boot [-i] [-b] | [-e] [-d] | [-h]
+usage: boot [-i] [-b] | [-e] [-d] [-u] | [-h]
   Options:
           [-i | --api]                    : run API server
           [-b | --bgrun]                  : run API server in background
           [-e | --env]                    : env setup, install dependences
           [-d | --db]                     : start mongoDB
+          [-u | --source]                 : update data source
           [-h | --help]                   : check script usage
-
 ```
 ### API
 

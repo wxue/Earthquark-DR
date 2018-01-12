@@ -20,15 +20,21 @@ function runDB
     service mongod start
 }   # end of runDB
 
+function updateSource
+{
+    node ./server/bin/update-earthquake-data.js &
+}   # end of updateSource
+
 
 function usage
 {
-    echo "usage: boot [-i] [-b] | [-e] [-d] | [-h]"
+    echo "usage: boot [-i] [-b] | [-e] [-d] [-u] | [-h]"
     echo "  Options:
                     [-i | --api]                    : run API server
                     [-b | --bgrun]                  : run API server in background
                     [-e | --env]                    : env setup, install dependences
                     [-d | --db]                     : start mongoDB
+                    [-u | --source]                 : update data source
                     [-h | --help]                   : check script usage
         "
 }
@@ -50,6 +56,8 @@ while [ "$1" != "" ]; do
         -e | --env )                    installDependences
                                         ;;
         -d | --db )                     runDB
+                                        ;;
+        -u | --source )                 updateSource
                                         ;;
         -h | --help )                   usage
                                         # exit
