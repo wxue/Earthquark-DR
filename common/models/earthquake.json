@@ -1,0 +1,50 @@
+{
+  "name": "earthquake",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "recordId": {
+      "type": "string",
+      "required": true
+    },
+    "createTime": {
+      "type": "date",
+      "required": true
+    },
+    "timeZone": {
+      "type": "number",
+      "required": true
+    },
+    "mag": {
+      "type": "number"
+    },
+    "energyRelease": {
+      "type": "number"
+    },
+    "area": {
+      "type": "string"
+    },
+    "updateTime": {
+      "type": "date"
+    },
+    "magType": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "coordinates": {
+      "type": "array"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
