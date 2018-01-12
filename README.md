@@ -10,12 +10,45 @@ Earth quark - dangerous region query api
 ### Dev environment set up
 
 1. Install node.js
+
 2. Install strongloop
+
 3. Install dependencies
     ```
-    npm install
+    . boot -e
     ```
 
+4. Fire up mongoDB
+    ```
+    . boot -d
+    ```
+
+5. Run
+    ```
+    . boot -i
+    ```
+
+* Run in background
+    ```
+    . boot -b
+    ```
+
+I wrote a script to setup and run server, check it out
+```
+. boot -h
+```
+
+Usage:
+```
+usage: boot [-i] [-b] | [-e] [-d] | [-h]
+  Options:
+          [-i | --api]                    : run API server
+          [-b | --bgrun]                  : run API server in background
+          [-e | --env]                    : env setup, install dependences
+          [-d | --db]                     : start mongoDB
+          [-h | --help]                   : check script usage
+
+```
 ### API
 
 Using LoopBack API Explorer:
