@@ -51,12 +51,12 @@ usage: boot [-i] [-b] | [-e] [-d] | [-h]
 ```
 ### API
 
-Using LoopBack API Explorer:
+Using LoopBack API Explorer to view and test APIs:
 
 [http://localhost:3000/explorer/](http://localhost:3000/explorer/)
 
 
-##### Try curl yourself:
+#### Try curl yourself:
 
 ###### 1. Region Type =  area  
 (http://localhost:3000/api/earthquakes/regions?count=5&days=8&region_type=area)
@@ -152,3 +152,5 @@ Return:
   ]
 }
 ```
+
+### More Design Doc at [DESIGNDOC](./DESIGNDOC.md)
