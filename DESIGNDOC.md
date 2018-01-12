@@ -101,6 +101,8 @@ log10 E = 1.5 MW + 11.8
 
 E = (10)^(1.5 * MW + 11.8)
 
+MW = (log10 E - 11.8)/1.5
+
 * moment magnitude (MW)
 
 > Reference:
