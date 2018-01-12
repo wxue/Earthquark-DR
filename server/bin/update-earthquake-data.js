@@ -38,23 +38,21 @@ var updateSource = function(app, callback){
         eq.magType = feed.properties.magType;
         eq.type = feed.properties.type;
         eq.title = feed.properties.title;
-        eq.createTime = feed.properties.time;
-        eq.updateTime = feed.properties.updated;
         eq.coordinates = feed.geometry.coordinates;
 
-        // if (feed.properties.time) {
-        //   // since epoch
-        //   eq.createTime = new Date(0);
-        //   // milliseconds to seconds
-        //   eq.createTime.setUTCSeconds(feed.properties.time/1000);
-        // };
+        if (feed.properties.time) {
+          // since epoch
+          eq.createTime = new Date(0);
+          // milliseconds to seconds
+          eq.createTime.setUTCSeconds(feed.properties.time/1000);
+        };
 
-        // if (feed.properties.updated) {
-        //   // since epoch
-        //   eq.updateTime = new Date(0);
-        //   // milliseconds to seconds
-        //   eq.updateTime.setUTCSeconds(feed.properties.updated/1000);
-        // };
+        if (feed.properties.updated) {
+          // since epoch
+          eq.updateTime = new Date(0);
+          // milliseconds to seconds
+          eq.updateTime.setUTCSeconds(feed.properties.updated/1000);
+        };
 
         if (feed.properties.place) {
           // get the reported area name, it's either US State or other Country

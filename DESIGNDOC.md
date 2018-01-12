@@ -2,7 +2,7 @@
 
 ## My task list (personal sprints):
 
-##### 1. Use LoopBack CLI tool to kick start
+### 1. Use LoopBack CLI tool to kick start
 
 This project's kick start by using [loopback-cli](http://loopback.io/getting-started/):
 
@@ -16,7 +16,7 @@ Kick start:
 lb
 ```
 
-##### 2. Set up data model to store useful entries in [Earthquake Geojson](http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson) from earthquake.usgs.gov
+### 2. Set up data model to store useful entries in [Earthquake Geojson](http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson) from earthquake.usgs.gov
 
 Reminder:
 
@@ -85,7 +85,7 @@ Example Data for one record
 Check the format here: [GeoJSON](http://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
 
 
-##### 3. Update db by calling [GeoJSON API](http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson).
+### 3. Update db by calling [GeoJSON API](http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson).
 
     1. Write a script to update;
     2. Update/run by every INTERVAL_TIME(=15x60) seconds;
@@ -107,17 +107,25 @@ E = (10)^(1.5 * MW + 11.8)
 [calculate earthquake energy](https://earthquake.usgs.gov/learn/topics/measure.php)
 [http://www.jclahr.com](http://www.jclahr.com/alaska/aeic/magnitude/energy_calc.html)
 
-##### 4. Build endpoint ___/regions___ to query most dangerous regions by given _time_period_ and _region_type_.
+### 4. Build endpoint ___/regions___ to query most dangerous regions by given _time_period_ and _region_type_.
     
     * How to determine region?
-        by __city__, __state__, __timezone__
+        by __area__, __timezone__
 
     * Need to convert total __energyRelease__ back to total __magnitude__
 
 
 TODO:
+[x] Use MongoDB to store date instead of using memory.
+
+[ ] Check if recordId already exist, before create a record
 
 [ ] Add [ACL](https://loopback.io/doc/en/lb2/Controlling-data-access.html). 
+
 [ ] Use [loopback-connector-rest](https://loopback.io/doc/en/lb2/REST-connector.html) to bind data source api.
+
 [ ] I found out in the original report place, same state name are not store as same name. For example, it could be CA, or California. Need to map them together in the future.
-[x] Use MongoDB to store date instead of using memory.
+
+[ ] Update/run by every INTERVAL_TIME(=15x60) seconds;
+
+[ ] Use Elastic Search to bring out a more powerful query performance

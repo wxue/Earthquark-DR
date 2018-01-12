@@ -11,7 +11,7 @@
       "required": true
     },
     "createTime": {
-      "type": "number",
+      "type": "date",
       "required": true
     },
     "timeZone": {
@@ -28,7 +28,7 @@
       "type": "string"
     },
     "updateTime": {
-      "type": "number"
+      "type": "date"
     },
     "magType": {
       "type": "string"
