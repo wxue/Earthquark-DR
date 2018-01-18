@@ -1,16 +1,16 @@
-var app = require('../server.js');
-var async = require('async');
-var https = require('https');
+var app = require("../server.js");
+var async = require("async");
+var https = require("https");
 
-var host = 'earthquake.usgs.gov';
-var endpoint = '/earthquakes/feed/v1.0/summary/all_month.geojson';
-var method = 'GET'
-var headers = {'Content-Type': 'application/json'};
+var host = "earthquake.usgs.gov";
+var endpoint = "/earthquakes/feed/v1.0/summary/all_month.geojson";
+var method = "GET";
+var headers = {"Content-Type": "application/json"};
 
-console.log('Start updating earthquake data...');
+console.log("Start updating earthquake data...");
 
 var updateSource = function(app, callback){
-  console.log('importing data');
+  console.log("importing data");
   var Earthquake = app.models.earthquake;
 
   var options = {
@@ -21,13 +21,13 @@ var updateSource = function(app, callback){
   };
 
   var req = https.request(options, function(res) {
-    res.setEncoding('utf-8');
-    var responseString = '';
-    res.on('data', function(data) {
+    res.setEncoding("utf-8");
+    var responseString = "";
+    res.on("data", function(data) {
       responseString += data;
     });
 
-    res.on('end', function() {
+    res.on("end", function() {
       var responseObject = JSON.parse(responseString);
       async.each(responseObject.features, function(feed, callback){
         // console.log(feed);
@@ -55,7 +55,7 @@ var updateSource = function(app, callback){
         };
 
         if (feed.properties.place) {
-          // get the reported area name, it's either US State or other Country
+          // get the reported area name, it"s either US State or other Country
           var str = feed.properties.place;
           var arr = str.split(", ").map(val => val);
           eq.area = arr.pop();
@@ -78,10 +78,10 @@ var updateSource = function(app, callback){
 
 updateSource(app, function(err/*, results*/) {
   if (err) {
-    console.error('Update source failed: ', err);
+    console.error("Update source failed: ", err);
   }
   else {
-    console.log('Successfully updated earthquake source.');
+    console.log("Successfully updated earthquake source.");
   }
   process.exit(0);
 });
